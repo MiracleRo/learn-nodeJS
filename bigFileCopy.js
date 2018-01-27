@@ -1,7 +1,7 @@
 const fs = require('fs')
 
 function copy(src, dst) {
-  fs.writeFileSync(dst, fs.readFileSync(src))
+  fs.createReadStream(src).pipe(fs.createWriteStream(dst))
 }
 
 function main(argv) {
